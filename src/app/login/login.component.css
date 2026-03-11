@@ -1,0 +1,30 @@
+.login_container {
+  /* transform: translate(0px, 50%); */
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.imagefluid {
+  max-width: 100%;
+  height: auto;
+}
+
+.loginForm {
+  margin: auto;
+}
+
+mat-card {
+  width: 350px;
+}
+
+mat-card-header {
+  justify-content: center;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+button {
+  width: 100%;
+}

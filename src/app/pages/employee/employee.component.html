@@ -1,0 +1,52 @@
+<mat-tab-group mat-stretch-tabs="false" mat-align-tabs="center" backgroundColor="primary">
+  <mat-tab label="All Franchises">
+    <div [hidden]="isloading" class="mat-elevation-z8">
+      <table mat-table [dataSource]="dataSource">
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="Name">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <td mat-cell *matCellDef="let element"> {{element.Name}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="Email">
+          <th mat-header-cell *matHeaderCellDef> Email </th>
+          <td mat-cell *matCellDef="let element"> {{element.Email}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="MobileNo">
+          <th mat-header-cell *matHeaderCellDef> MobileNo </th>
+          <td mat-cell *matCellDef="let element"> {{element.MobileNo}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="Verification">
+          <th mat-header-cell *matHeaderCellDef> Verification</th>
+          <td mat-cell *matCellDef="let element"> {{element.VerificationType}} </td>
+        </ng-container>
+        <ng-container matColumnDef="Action">
+          <th mat-header-cell *matHeaderCellDef>Action</th>
+          <td mat-cell *matCellDef="let element">
+            <mat-icon style="color: #6bd098" data-bs-toggle="modal" data-bs-target="#exampleModal"
+              (click)="OpenDialog(element.FranchiseId)">visibility
+            </mat-icon>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
+      </mat-paginator>
+    </div>
+  </mat-tab>
+</mat-tab-group>
+<div [hidden]="!isloading">
+  <div class="d-flex justify-content-center">
+    <app-loader></app-loader>
+    
+  </div>
+</div>

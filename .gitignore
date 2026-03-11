@@ -1,0 +1,34 @@
+# Node modules
+node_modules/
+
+# Build output
+dist/
+tmp/
+out-tsc/
+
+# Environment files
+*.env
+*.local
+
+# IDE files
+.vscode/
+.idea/
+*.sublime-workspace
+
+# Logs and debugging files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Compiled TypeScript
+*.tsbuildinfo
+
+# Angular specific files
+.angular/
+
+# Dependency lock files (optional)
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
