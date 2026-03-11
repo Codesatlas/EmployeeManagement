@@ -25,6 +25,7 @@ import { EmployeeComponent } from "app/pages/employee/employee.component";
 import { EmployeedialogComponent } from "app/pages/employeedialog/employeedialog.component";
 import { LoaderComponent } from 'app/pages/loader/loader.component';
 import { ProfileComponent } from "app/pages/profile/profile.component";
+import { TeamComponent } from "app/pages/team/team.component";
 @NgModule({
   imports: [
     CommonModule,
@@ -53,7 +54,8 @@ import { ProfileComponent } from "app/pages/profile/profile.component";
     EmployeeComponent,
     EmployeedialogComponent,
     LoaderComponent,
-    ProfileComponent
+    ProfileComponent,
+    TeamComponent
   ],
 })
 export class AdminLayoutModule {}

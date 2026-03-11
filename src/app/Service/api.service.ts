@@ -8,7 +8,8 @@ import { SubcategoryRequestModel } from "app/RequestModel/SubCategoryRequestMode
   providedIn: "root",
 })
 export class ApiService {
-  BaseUrL = "http://codesatlas-001-site4.mtempurl.com/dev/api/v1/employee/website";
+  BaseUrL =
+    "http://codesatlas-001-site4.mtempurl.com/dev/api/v1/employee/website";
   constructor(private _http: HttpClient) {}
 
   LogInUser = (User: LoginUser) => {
@@ -17,11 +18,19 @@ export class ApiService {
 
   RegisterEmployee = (Model: any) => {
     return this._http.post(`${this.BaseUrL}/Employee/Create`, Model);
+  };
+
+ GetTeam = () => {
+    const token = localStorage.getItem("Token");
+   const headers = new HttpHeaders().set("Authorization", `Bearer ${token}`);
+    return this._http.get(`${this.BaseUrL}/Employee/GetAllTeam`, { headers });
   }
-  
-  GetEmployee =()=>{
+
+  GetEmployee = () => {
     const token = localStorage.getItem("Token");
     const headers = new HttpHeaders().set("Authorization", `Bearer ${token}`);
     return this._http.get(`${this.BaseUrL}/Employee/Get`, { headers });
-  }
+  };
+
+ ;
 }

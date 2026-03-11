@@ -38,6 +38,13 @@ export const ROUTES: RouteInfo[] = [
     class: "",
     roles: ["Basic"],
   },
+  {
+    path: "/Employee/team",
+    title: "Team",
+    icon: "nc-app",
+    class: "",
+    roles: ["Basic"],
+  },
 ];
 
 @Component({

@@ -79,7 +79,8 @@ states: State[] = [
       Address: ["", Validators.required],
       City: ["", Validators.required],
       Designation: ["", Validators.required],
-      Role: ["", Validators.required],
+      // Role: ["", Validators.required],
+      ManagerCode: [""],
     });
   }
 
