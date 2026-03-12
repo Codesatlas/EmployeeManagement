@@ -19,6 +19,7 @@ export class EmployeesplitdialogComponent {
     private _http: ApiService,
     private _snackBar: MatSnackBar,
     private router: Router,
+    public dialog: MatDialog,
   ) {}
   VendorPercentage: number;
   Level1EmployeePercentage: number;
@@ -35,23 +36,23 @@ export class EmployeesplitdialogComponent {
     rModel.Level3EmployeePercentage = this.Level3EmployeePercentage;
     rModel.Level4EmployeePercentage = this.Level4EmployeePercentage;
     rModel.Status = this.Status ? "Active" : "Inactive";
-     this._http.SaveCommissionConfig(rModel).subscribe((i: Response) => {
-            console.log(i);
-            if (i?.IsSuccess) {
-              // const dialogRef = this.dialog.closeAll();
-              this._snackBar.open(`${i.Message}`, "Close", {
-                horizontalPosition: "end",
-                verticalPosition: "top",
-                duration: 5000,
-              });
-              const currentUrl = this.router.url;
-              const navigationExtras: NavigationExtras = {
-                skipLocationChange: true,
-              };
-              this.router.navigateByUrl("/", navigationExtras).then(() => {
-                this.router.navigateByUrl(currentUrl, navigationExtras);
-              });
-            }
-          })
+    this._http.SaveCommissionConfig(rModel).subscribe((i: Response) => {
+      console.log(i);
+      if (i?.IsSuccess) {
+        const dialogRef = this.dialog.closeAll();
+        this._snackBar.open(`${i.Message}`, "Close", {
+          horizontalPosition: "end",
+          verticalPosition: "top",
+          duration: 5000,
+        });
+        const currentUrl = this.router.url;
+        const navigationExtras: NavigationExtras = {
+          skipLocationChange: true,
+        };
+        this.router.navigateByUrl("/", navigationExtras).then(() => {
+          this.router.navigateByUrl(currentUrl, navigationExtras);
+        });
+      }
+    });
   };
 }

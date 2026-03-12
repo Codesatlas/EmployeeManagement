@@ -1,3 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap');
+
+.commission-header {
+  background: #ffffff;
+  border-bottom: 1px solid #e8eaf0;
+  padding: 0 32px;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+}
+
+.title-group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.title-icon {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #1a1f36 0%, #2d3561 100%);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  flex-shrink: 0;
+}
+
+.header-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #9ba3b8;
+  margin: 0 0 2px;
+}
+
+.header-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #1a1f36;
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.btn-add {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: #1a1f36;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.18s ease;
+  letter-spacing: 0.01em;
+}
+
+.btn-add:hover {
+  background: #2d3561;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(26, 31, 54, 0.25);
+}
+
+.btn-add:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.btn-icon {
+  font-size: 18px;
+  line-height: 1;
+  font-weight: 300;
+}
+
 table {
   width: 100%;
   text-align: center;
