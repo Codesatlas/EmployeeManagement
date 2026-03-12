@@ -15,17 +15,14 @@ export class ApiService {
   LogInUser = (User: LoginUser) => {
     return this._http.post(`${this.BaseUrL}/Employee/Login`, User);
   };
-
   RegisterEmployee = (Model: any) => {
     return this._http.post(`${this.BaseUrL}/Employee/Create`, Model);
   };
-
   GetTeam = () => {
     const token = localStorage.getItem("Token");
     const headers = new HttpHeaders().set("Authorization", `Bearer ${token}`);
     return this._http.get(`${this.BaseUrL}/Employee/GetAllTeam`, { headers });
   };
-
   GetEmployee = () => {
     const token = localStorage.getItem("Token");
     const headers = new HttpHeaders().set("Authorization", `Bearer ${token}`);
