@@ -1,6 +1,7 @@
 import { Routes } from "@angular/router";
 import { DashboardComponent } from "app/pages/dashboard/dashboard.component";
 import { EmployeeComponent } from "app/pages/employee/employee.component";
+import { EmployeesplitComponent } from "app/pages/employeesplit/employeesplit.component";
 import { ProfileComponent } from "app/pages/profile/profile.component";
 import { TeamComponent } from "app/pages/team/team.component";
 
@@ -9,4 +10,5 @@ export const AdminLayoutRoutes: Routes = [
   { path: "employee_management", component: EmployeeComponent },
   { path: "profile", component: ProfileComponent },
   { path: "team", component: TeamComponent },
+  { path: "employee_split", component: EmployeesplitComponent },
 ];

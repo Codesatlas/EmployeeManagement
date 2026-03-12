@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+/* ============================================================
+   ADD THIS TO YOUR GLOBAL styles.css
+   (Angular Material dialogs render outside component DOM,
+    so component CSS never reaches them without this)
+   ============================================================ */
+
+/* 1. Import fonts globally */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* 2. Remove default Material dialog padding/background
+      so our custom .form-wrapper controls the look */
+.employeesplit-dialog-panel .mat-mdc-dialog-container,
+.employeesplit-dialog-panel .mdc-dialog__surface {
+  padding: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border-radius: 20px !important;
+  overflow: hidden !important;
+}
+
+/* 3. Paste the full contents of employeesplitdialog.component.css here.
+      The file already has all rules scoped under
+      .employeesplit-dialog-panel so they won't leak globally. */

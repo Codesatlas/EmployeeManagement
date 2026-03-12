@@ -14,10 +14,10 @@ export const AppRoutes: Routes = [
     component: EmployeeregisterComponent,
   },
   {
-    path: "Superadmin",
+    path: "SuperAdmin",
     component: AdminLayoutComponent,
     canActivate: [AuthGuard],
-    data: { role: "Superadmin" },
+    data: { role: "SuperAdmin" },
     children: [
       {
         path: "",

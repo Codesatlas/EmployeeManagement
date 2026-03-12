@@ -52,8 +52,8 @@ export class LoginComponent implements OnInit {
       const role = this.LoginUserDetails.Role;
       console.log(role);
       
-      if (role === "Superadmin") {
-        this.router.navigate(["/Superadmin/dashboard"]);
+      if (role === "SuperAdmin") {
+        this.router.navigate(["/SuperAdmin/dashboard"]);
       } else {
         this.router.navigate(["/Employee/dashboard"]);
       }

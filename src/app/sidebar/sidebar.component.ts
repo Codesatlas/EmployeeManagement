@@ -11,11 +11,11 @@ export interface RouteInfo {
 
 export const ROUTES: RouteInfo[] = [
   {
-    path: "/Superadmin/dashboard",
+    path: "/SuperAdmin/dashboard",
     title: "Dashboard",
     icon: "nc-bank",
     class: "",
-    roles: ["Superadmin"],
+    roles: ["SuperAdmin"],
   },
   {
     path: "/Employee/dashboard",
@@ -25,11 +25,11 @@ export const ROUTES: RouteInfo[] = [
     roles: ["Basic"],
   },
   {
-    path: "/Superadmin/employee_management",
+    path: "/SuperAdmin/employee_management",
     title: "Employee",
     icon: "nc-app",
     class: "",
-    roles: ["Superadmin"],
+    roles: ["SuperAdmin"],
   },
   {
     path: "/Employee/profile",
@@ -44,6 +44,13 @@ export const ROUTES: RouteInfo[] = [
     icon: "nc-app",
     class: "",
     roles: ["Basic"],
+  },
+  {
+    path: "/SuperAdmin/employee_split",
+    title: "Employee Split",
+    icon: "nc-app",
+    class: "",
+    roles: ["SuperAdmin"],
   },
 ];
 

@@ -1,0 +1,71 @@
+<h2 mat-dialog-title>Commission Split</h2>
+<mat-dialog-content>
+  <form action="">
+    <div class="row">
+      <div class="col-md-4">
+        <mat-form-field appearance="outline">
+          <mat-label>VendorPercentage</mat-label>
+          <input matInput [(ngModel)]="VendorPercentage" name="VendorPercentage" />
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <mat-form-field appearance="outline">
+          <mat-label>Level1EmployeePercentage</mat-label>
+          <input matInput [(ngModel)]="Level1EmployeePercentage" name="Level1EmployeePercentage" />
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <mat-form-field appearance="outline">
+          <mat-label>Level2EmployeePercentage</mat-label>
+          <input matInput [(ngModel)]="Level2EmployeePercentage" name="Level2EmployeePercentage" />
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <mat-form-field appearance="outline">
+          <mat-label>Level3EmployeePercentage</mat-label>
+          <input
+            matInput
+            [(ngModel)]="Level3EmployeePercentage"
+            name="Level3EmployeePercentage"
+          />
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <mat-form-field appearance="outline">
+          <mat-label>Level4EmployeePercentage</mat-label>
+          <input
+            matInput
+            [(ngModel)]="Level4EmployeePercentage"
+            name="Level4EmployeePercentage"
+          />
+        </mat-form-field>
+      </div>
+      <div class="col-md-4">
+        <mat-form-field appearance="outline">
+          <mat-label>Status</mat-label>
+          <mat-select [(ngModel)]="Status" name="Status">
+            <mat-option value="Active">Active</mat-option>
+            <mat-option value="Inactive">Inactive</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </div>
+
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button
+    mat-button
+    style="background-color: #5cb85c; color: #e8ebf0"
+    (click)="AddCommissionSplit()"
+  >
+    Save
+  </button>
+  <button
+    mat-button
+    mat-dialog-close
+    style="background-color: #fa0d0d; color: #e8ebf0"
+  >
+    Cancel
+  </button>
+</mat-dialog-actions>

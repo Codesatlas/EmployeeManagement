@@ -20,17 +20,24 @@ export class ApiService {
     return this._http.post(`${this.BaseUrL}/Employee/Create`, Model);
   };
 
- GetTeam = () => {
+  GetTeam = () => {
     const token = localStorage.getItem("Token");
-   const headers = new HttpHeaders().set("Authorization", `Bearer ${token}`);
+    const headers = new HttpHeaders().set("Authorization", `Bearer ${token}`);
     return this._http.get(`${this.BaseUrL}/Employee/GetAllTeam`, { headers });
-  }
+  };
 
   GetEmployee = () => {
     const token = localStorage.getItem("Token");
     const headers = new HttpHeaders().set("Authorization", `Bearer ${token}`);
     return this._http.get(`${this.BaseUrL}/Employee/Get`, { headers });
   };
-
- ;
+  SaveCommissionConfig = (Model: any) => {
+    const token = localStorage.getItem("Token");
+    const headers = new HttpHeaders().set("Authorization", `Bearer ${token}`);
+    return this._http.post(
+      `${this.BaseUrL}/EmployeeSplit/Create`,
+      Model,
+      { headers },
+    );
+  };
 }
