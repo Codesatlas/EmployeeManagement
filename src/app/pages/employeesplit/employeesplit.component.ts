@@ -14,7 +14,7 @@ import { EmployeeSplit } from "app/Entity/EmployeeSplit";
   templateUrl: "./employeesplit.component.html",
   styleUrls: ["./employeesplit.component.css"],
 })
-export class EmployeesplitComponent implements AfterViewInit {
+export class EmployeesplitComponent implements AfterViewInit, OnInit {
   constructor(
     private _http: ApiService,
     public dialog: MatDialog,
@@ -28,7 +28,8 @@ export class EmployeesplitComponent implements AfterViewInit {
     "Level2Percentage",
     "Level3Percentage",
     "Level4Percentage",
-    "Action",
+    "Edit",
+    "Status",
   ];
   dataSource = new MatTableDataSource<EmployeeSplit>(this.EmployeeSplit);
 
@@ -58,13 +59,33 @@ export class EmployeesplitComponent implements AfterViewInit {
       },
     });
   }
-  OpenDialog = () => {
+  OpenDialog = (employeeId?: any) => {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.width = "50vw";
+    if (employeeId) {
+       dialogConfig.data = { employeeId };
+    }
     const dialogRef = this.dialog.open(EmployeesplitdialogComponent, dialogConfig);
 
     dialogRef.afterClosed().subscribe((result) => {
-      console.log(`Dialog result: ${result}`);
+       console.log(`Dialog result: ${result}`);
     });
   };
+
+  toggleStatus = (element: EmployeeSplit) => {
+  const previousStatus = element.Status;
+  element.Status = element.Status === 'Active' ? 'Inactive' : 'Active';
+
+  this._http.UpdateEmployeeSplitStatus(element.EmployeeSplitId, element.Status).subscribe({
+    next: (res: any) => {
+      console.log("Status updated successfully:", res);
+    },
+    error: (err) => {
+      element.Status = previousStatus; // revert on error
+      console.log("Error updating status:", err);
+    }
+  });
+};
 }
+
+

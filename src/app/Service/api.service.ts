@@ -44,4 +44,15 @@ export class ApiService {
       { headers },
     );
   };
+
+  UpdateEmployeeSplitStatus = (employeeSplitId: string, status: string) => {
+    const token = localStorage.getItem("Token");
+    const headers = new HttpHeaders().set("Authorization", `Bearer ${token}`);
+    return this._http.put(
+       `${this.BaseUrL}/EmployeeSplit/UpdateStatus`,
+     { EmployeeSplitId: employeeSplitId, Status: status },
+     { headers }
+    );
+  };
+
 }
