@@ -25,6 +25,12 @@ export class ApiService {
     const headers = new HttpHeaders().set("Authorization", `Bearer ${token}`);
     return this._http.get(`${this.BaseUrL}/Employee/GetAllTeam`, { headers });
   };
+  
+ GetAllEmployeeSplit = () => {
+    const token = localStorage.getItem("Token");
+    const headers = new HttpHeaders().set("Authorization", `Bearer ${token}`);
+    return this._http.get(`${this.BaseUrL}/EmployeeSplit/GetAll`, { headers }); // ✅ fix URL
+  };
 
   GetEmployee = () => {
     const token = localStorage.getItem("Token");

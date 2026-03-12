@@ -52,8 +52,22 @@ export class EmployeesplitComponent implements AfterViewInit {
       },
       error: (err) => {
         console.log("Error Status:", err.status);
-        console.log("Error Body:", err.error); // ← this will show exact reason
+        console.log("Error Body:", err.error); 
         this.isloading = false;
+      },
+    });
+
+    this._http.GetAllEmployeeSplit().subscribe({
+      next: (i: any) => {
+        console.log("Employee Split Response: ", i);
+        console.log("Employee Split Data: ",i.Data);
+        console.log("First Record: ",i.Data[0]);
+        console.log("IsSuccess: ", i.IsSuccess);             
+        console.log("Message: ", i.Message);
+      },
+      error: (err) => {
+        console.log("Error Status:", err.status);
+        console.log("Error Body:", err.error);
       },
     });
   }
