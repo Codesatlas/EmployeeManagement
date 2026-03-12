@@ -7,6 +7,7 @@ import { ApiService } from "app/Service/api.service";
 import { EmployeedialogComponent } from "../employeedialog/employeedialog.component";
 import { Response } from "app/Entity/Response";
 import { EmployeesplitdialogComponent } from "../employeesplitdialog/employeesplitdialog.component";
+import { EmployeeSplit } from "app/Entity/EmployeeSplit";
 
 @Component({
   selector: "app-employeesplit",
@@ -18,8 +19,8 @@ export class EmployeesplitComponent implements AfterViewInit {
     private _http: ApiService,
     public dialog: MatDialog,
   ) {}
-  FranchiseResponse: Response;
-  Franchise: Employee[] = [];
+  EmployeeSplitResponse: Response;
+  EmployeeSplit: EmployeeSplit[] = [];
   isloading: boolean = false;
   displayedColumns: string[] = [
     "VendorPercentage",
@@ -29,7 +30,7 @@ export class EmployeesplitComponent implements AfterViewInit {
     "Level4Percentage",
     "Action",
   ];
-  dataSource = new MatTableDataSource<Employee>(this.Franchise);
+  dataSource = new MatTableDataSource<EmployeeSplit>(this.EmployeeSplit);
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
@@ -38,36 +39,22 @@ export class EmployeesplitComponent implements AfterViewInit {
   }
   ngOnInit(): void {
     this.isloading = true;
-    this._http.GetTeam().subscribe({
+    this._http.GetAllEmployeeSplit().subscribe({
       next: (i: any) => {
-        console.log("Team Response: ", i);
+        console.log("Employee Split Response: ", i);
         if (!i?.IsSuccess) {
           this.isloading = false;
           return;
         }
-        this.FranchiseResponse = i;
-        this.Franchise = this.FranchiseResponse.Data;
-        this.dataSource.data = this.FranchiseResponse.Data;
+        this.EmployeeSplitResponse = i;
+        this.EmployeeSplit = this.EmployeeSplitResponse.Data;
+        this.dataSource.data = this.EmployeeSplitResponse.Data;
         this.isloading = false;
-      },
-      error: (err) => {
-        console.log("Error Status:", err.status);
-        console.log("Error Body:", err.error); 
-        this.isloading = false;
-      },
-    });
-
-    this._http.GetAllEmployeeSplit().subscribe({
-      next: (i: any) => {
-        console.log("Employee Split Response: ", i);
-        console.log("Employee Split Data: ",i.Data);
-        console.log("First Record: ",i.Data[0]);
-        console.log("IsSuccess: ", i.IsSuccess);             
-        console.log("Message: ", i.Message);
       },
       error: (err) => {
         console.log("Error Status:", err.status);
         console.log("Error Body:", err.error);
+        this.isloading = false;
       },
     });
   }
