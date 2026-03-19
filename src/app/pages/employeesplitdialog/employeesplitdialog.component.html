@@ -23,26 +23,19 @@
       <div class="col-md-4">
         <mat-form-field appearance="outline">
           <mat-label>Level3EmployeePercentage</mat-label>
-          <input
-            matInput
-            [(ngModel)]="Level3EmployeePercentage"
-            name="Level3EmployeePercentage"
-          />
+          <input matInput [(ngModel)]="Level3EmployeePercentage" name="Level3EmployeePercentage" />
         </mat-form-field>
       </div>
       <div class="col-md-4">
         <mat-form-field appearance="outline">
           <mat-label>Level4EmployeePercentage</mat-label>
-          <input
-            matInput
-            [(ngModel)]="Level4EmployeePercentage"
-            name="Level4EmployeePercentage"
-          />
+          <input matInput [(ngModel)]="Level4EmployeePercentage" name="Level4EmployeePercentage" />
         </mat-form-field>
       </div>
       <div class="col-md-4">
         <mat-form-field appearance="outline">
           <mat-label>Status</mat-label>
+          <!-- CHANGED: was boolean, now binds to 'Active'/'Inactive' string -->
           <mat-select [(ngModel)]="Status" name="Status">
             <mat-option value="Active">Active</mat-option>
             <mat-option value="Inactive">Inactive</mat-option>
@@ -50,16 +43,16 @@
         </mat-form-field>
       </div>
     </div>
-
   </form>
 </mat-dialog-content>
 <mat-dialog-actions align="end">
+  <!-- CHANGED: button text is dynamic based on isEditMode -->
   <button
     mat-button
     style="background-color: #5cb85c; color: #e8ebf0"
     (click)="AddCommissionSplit()"
   >
-    Save
+    {{ isEditMode ? 'Update' : 'Save' }}
   </button>
   <button
     mat-button

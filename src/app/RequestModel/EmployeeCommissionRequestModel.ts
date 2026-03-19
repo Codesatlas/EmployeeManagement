@@ -1,4 +1,5 @@
 export class EmployeeCommissionRequestModel {
+  EmployeeSplitId: any; 
   VendorPercentage?: number;
   Level1EmployeePercentage?: number;
   Level2EmployeePercentage?: number;

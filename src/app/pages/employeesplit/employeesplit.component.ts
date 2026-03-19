@@ -28,8 +28,8 @@ export class EmployeesplitComponent implements AfterViewInit, OnInit {
     "Level2Percentage",
     "Level3Percentage",
     "Level4Percentage",
-    "Edit",
     "Status",
+    "Edit",
   ];
   dataSource = new MatTableDataSource<EmployeeSplit>(this.EmployeeSplit);
 
@@ -59,17 +59,20 @@ export class EmployeesplitComponent implements AfterViewInit, OnInit {
       },
     });
   }
-  OpenDialog = (employeeId?: any) => {
-    const dialogConfig = new MatDialogConfig();
-    dialogConfig.width = "50vw";
-    if (employeeId) {
-       dialogConfig.data = { employeeId };
-    }
-    const dialogRef = this.dialog.open(EmployeesplitdialogComponent, dialogConfig);
+  OpenDialog = (element?: any) => {
+     const dialogConfig = new MatDialogConfig();
+     dialogConfig.width = "50vw";
+     if (element) {
+        dialogConfig.data = { element }; // pass the full row object
+      }
+      const dialogRef = this.dialog.open(EmployeesplitdialogComponent, dialogConfig);
 
-    dialogRef.afterClosed().subscribe((result) => {
-       console.log(`Dialog result: ${result}`);
-    });
+      dialogRef.afterClosed().subscribe((result) => {
+        console.log(`Dialog result: ${result}`);
+        if (result) {
+          this.ngOnInit(); // refresh table after save
+        }
+      });
   };
 
   toggleStatus = (element: EmployeeSplit) => {

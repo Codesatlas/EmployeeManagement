@@ -45,6 +45,16 @@ export class ApiService {
     );
   };
 
+  UpdateCommissionConfig = (Model: any) => {
+    const token = localStorage.getItem("Token");
+    const headers = new HttpHeaders().set("Authorization", `Bearer ${token}`);
+    return this._http.post(
+      `${this.BaseUrL}/EmployeeSplit/Update`,
+      Model,
+      { headers }
+    );
+  };
+
   UpdateEmployeeSplitStatus = (employeeSplitId: string, status: string) => {
     const token = localStorage.getItem("Token");
     const headers = new HttpHeaders().set("Authorization", `Bearer ${token}`);
